@@ -1,5 +1,6 @@
 trait Additive[A] {
   def plus(a: A, b:A): A
+  def twice(a: A): A
   def zero: A
 }
 
@@ -8,6 +9,7 @@ def sum[A](lst: List[A])(implicit m: Additive[A]): A = {
 }
 implicit object StringAdditive extends Additive[String]{
   def plus(a: String, b: String): String = a + b
+  def twice(a: String): String = a+a
   def zero: String = ""
 }
 
